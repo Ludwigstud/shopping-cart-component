@@ -1,3 +1,3 @@
 # React + Vite
 
--- React practice
+- React practice, project to render components dynamically
