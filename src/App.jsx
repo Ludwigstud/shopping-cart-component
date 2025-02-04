@@ -6,24 +6,53 @@ import Header from "./components/Header";
 
 const App = () => {
 	const [books, setBooks] = useState([]);
+	const [numCart, increaseNumCart] = useState(0);
+	const [cart, setCart] = useState([]);
 
 	useEffect(() => {
-		service.get().then((response) => {
+		service.getBooks().then((response) => {
 			setBooks(response.data);
-			console.log("hello world", books);
+		});
+
+		service.getCart().then((response) => {
+			const cartItems = response.data;
+			setCart(cartItems);
+			const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+			increaseNumCart(totalItems);
 		});
 	}, []);
 
+	const incrementCart = async (bookId) => {
+		const cartItem = {
+			bookId: bookId,
+			quantity: 1,
+			dateAdded: new Date().toISOString(),
+		};
+
+		try {
+			await service.addToCart(cartItem);
+			increaseNumCart((prevNumCart) => prevNumCart + 1);
+			const updatedCart = await service.getCart();
+			setCart(updatedCart.data);
+		} catch (error) {
+			console.error("Failed to add to cart:", error);
+		}
+	};
+
 	return (
 		<div className="parent">
-			<Header />
+			<Header
+				total={numCart}
+				onRemove={() => increaseNumCart((prev) => prev - 1)}
+			/>
 			<div className="content">
 				{books.map((inf) => (
 					<Product
-						key={inf.id}
+						key={`book-${inf.id}`}
 						title={inf.title}
 						author={inf.author}
 						text={inf.text}
+						inc={() => incrementCart(inf.id)}
 					/>
 				))}
 			</div>

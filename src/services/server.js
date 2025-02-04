@@ -1,16 +1,26 @@
 import axios from "axios";
 
-const url = "http://localhost:3001/books";
+const baseUrl = "http://localhost:3001";
 
-const get = () => {
-	return axios.get(url);
+const getBooks = () => {
+	return axios.get(`${baseUrl}/books`);
 };
 
-const update = () => {
-	return console.log("update");
+const getCart = () => {
+	return axios.get(`${baseUrl}/cart`);
+};
+
+const addToCart = (cartItem) => {
+	return axios.post(`${baseUrl}/cart`, cartItem);
+};
+
+const removeFromCart = (id) => {
+	return axios.delete(`${baseUrl}/cart/${id}`);
 };
 
 export default {
-	get,
-	update,
+	getBooks,
+	getCart,
+	addToCart,
+	removeFromCart,
 };
