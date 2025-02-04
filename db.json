@@ -1,0 +1,28 @@
+{
+	"books": [
+		{
+			"id": "1",
+			"title": "A Study in Scarlet",
+			"author": "Arthur Conan Doyle",
+			"text": "The first novel introducing Sherlock Holmes and Dr. Watson, as they solve a mysterious murder involving revenge and a long-buried secret."
+		},
+		{
+			"id": "2",
+			"title": "The Hound of the Baskervilles",
+			"author": "Arthur Conan Doyle",
+			"text": "Holmes and Watson investigate the legend of a supernatural hound terrorizing the Baskerville family on the moors of Devonshire."
+		},
+		{
+			"id": "3",
+			"title": "The Adventures of Sherlock Holmes",
+			"author": "Arthur Conan Doyle",
+			"text": "A collection of short stories featuring Holmes solving various intriguing and perplexing cases."
+		},
+		{
+			"id": "4",
+			"title": "The Final Problem",
+			"author": "Arthur Conan Doyle",
+			"text": "Sherlock Holmes faces his greatest adversary, Professor Moriarty, in a deadly confrontation at the Reichenbach Falls."
+		}
+	]
+}

@@ -10,17 +10,19 @@ img {
 }
 
 .parent {
-	width: 90vw;
-  .content{
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-
-  }
+	.content {
+		display: flex;
+		gap: 10px;
+		flex-wrap: wrap;
+	}
 }
 
 .product {
-	max-width: 250px;
+	padding: 10px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	max-width: 220px;
 	border: 1px solid black;
 	align-items: center;
 	direction: flex;
@@ -28,8 +30,23 @@ img {
 	text-align: center;
 	background-color: white;
 	color: black;
-	padding: 20px;
+
+	height: 320px;
+
+	h1 {
+		font-size: 25px;
+	}
+	h3 {
+		font-size: 18px;
+	}
+	p {
+		font-size: 15px;
+		line-height: 1.5;
+	}
 	button {
+		position: absolute;
+		bottom: 0;
+
 		background-color: rgb(5, 187, 96);
 		border: 1px solid white;
 		padding: 10px;
